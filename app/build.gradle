@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'groovyx.grooid.groovy-android'
 
 android {
@@ -41,11 +42,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
+    // Crashlytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta01'
+
     // Old Imports
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.preference:preference:1.0.0'
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation 'org.jsoup:jsoup:1.10.1'
     implementation 'com.squareup.retrofit:retrofit:1.9.0'
     implementation 'de.greenrobot:greendao:2.1.0'
