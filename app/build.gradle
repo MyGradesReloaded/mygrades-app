@@ -78,3 +78,9 @@ task copyFiles(type: Copy) {
 }
 
 preBuild.dependsOn(copyFiles)
+
+sentry {
+    // Disabled for now
+    autoProguardConfig false
+    autoUpload false
+}
