@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'groovyx.grooid.groovy-android'
+apply plugin: 'io.sentry.android.gradle'
 
 android {
     compileSdkVersion 29
@@ -43,6 +44,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
+    // Sentry Bug tracking
+    implementation 'io.sentry:sentry-android:1.7.27'
+    implementation 'org.slf4j:slf4j-nop:1.7.25'
+
+
     // Old Imports
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.google.android.material:material:1.0.0'
@@ -73,3 +79,9 @@ task copyFiles(type: Copy) {
 }
 
 preBuild.dependsOn(copyFiles)
+
+sentry {
+    // Disabled for now
+    autoProguardConfig false
+    autoUpload false
+}
