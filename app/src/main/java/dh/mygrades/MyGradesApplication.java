@@ -5,8 +5,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
 
 import dh.mygrades.R;
-import io.sentry.Sentry;
-import io.sentry.android.AndroidSentryClientFactory;
 import dh.mygrades.database.DatabaseHelper;
 import dh.mygrades.database.dao.DaoMaster;
 import dh.mygrades.database.dao.DaoSession;
