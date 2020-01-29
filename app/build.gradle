@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'groovyx.grooid.groovy-android'
+apply plugin: 'io.sentry.android.gradle'
 
 android {
     compileSdkVersion 29
@@ -8,8 +9,8 @@ android {
         applicationId "dh.mygrades"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 12
-        versionName "0.1.3"
+        versionCode 14
+        versionName "0.1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -20,6 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
+            applicationIdSuffix ".debug"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -41,6 +43,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    // Sentry Bug tracking
+    implementation 'io.sentry:sentry-android:1.7.27'
+    implementation 'org.slf4j:slf4j-nop:1.7.25'
+
 
     // Old Imports
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -72,3 +79,9 @@ task copyFiles(type: Copy) {
 }
 
 preBuild.dependsOn(copyFiles)
+
+sentry {
+    // Disabled for now
+    autoProguardConfig false
+    autoUpload false
+}
