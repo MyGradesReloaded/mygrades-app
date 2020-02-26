@@ -29,6 +29,6 @@ public class FragmentPrivacyPolicy extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         webView = (WebView) view.findViewById(R.id.webview);
-        webView.loadUrl(Config.getServerUrl() + "/datenschutz");
+        webView.loadUrl(Config.getServerUrl() + "/data-privacy");
     }
 }
