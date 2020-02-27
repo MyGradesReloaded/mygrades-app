@@ -2,9 +2,11 @@ package dh.mygrades;
 
 import android.app.Application;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.preference.PreferenceManager;
+import android.os.Build;
+import androidx.preference.PreferenceManager;
 
-import dh.mygrades.R;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import dh.mygrades.database.DatabaseHelper;
 import dh.mygrades.database.dao.DaoMaster;
 import dh.mygrades.database.dao.DaoSession;
@@ -30,6 +32,9 @@ public class MyGradesApplication extends Application {
         // check if alarm for automatic scraping is set
         ScrapeAlarmManager scrapeAlarmManager = new ScrapeAlarmManager(this);
         scrapeAlarmManager.setAlarmFromPrefs(false, false);
+
+        // set dark mode on supported devices
+        if(Build.VERSION.SDK_INT >= 29) AppCompatDelegate.setDefaultNightMode(Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(getString(R.string.pref_key_dark_theme), "-1")));
     }
 
     public DaoSession getDaoSession() {

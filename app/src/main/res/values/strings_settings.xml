@@ -49,6 +49,19 @@
         <item>10080</item>
     </string-array>
 
+    <string name="pref_dark_theme_title">Thema</string>
+    <string name="pref_key_dark_theme">pref_key_dark_theme</string>
+    <string-array name="pref_dark_theme_titles">
+        <item>Hell</item>
+        <item>Dunkel</item>
+        <item>wie Systemeinstellung</item>
+    </string-array>
+    <string-array name="pref_dark_theme_values">
+        <item>1</item>
+        <item>2</item>
+        <item>-1</item>
+    </string-array>
+
     <string name="pref_only_wifi_title">Nur im WLAN</string>
     <string name="pref_only_wifi_summary">Es werden keine mobilen Daten genutzt</string>
     <string name="pref_key_only_wifi">pref_key_only_wifi</string>

@@ -3,8 +3,10 @@ package dh.mygrades.view.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 import androidx.preference.XpPreferenceFragment;
@@ -41,6 +43,7 @@ public class SettingsFragment extends XpPreferenceFragment {
         initLicensePreference();
         initOpenSourceLicenses();
         initLegalNotice();
+        initDarkModePreference();
 
         // notification preferences
         scrapeAlarmManager = new ScrapeAlarmManager(getContext());
@@ -89,6 +92,30 @@ public class SettingsFragment extends XpPreferenceFragment {
                 preference.setSummary(getDisplayValue((ListPreference) preference, value.toString()));
 
                 scrapeAlarmManager.setAlarm(Integer.parseInt(value.toString()));
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Initializes the dark mode preference, updates the summary and changes the theme, if ApiVersion is higher than 29
+     */
+    private void initDarkModePreference(){
+        Preference darkModePreference = findPreference(getString(R.string.pref_key_dark_theme));
+
+        darkModePreference.setVisible(Build.VERSION.SDK_INT >= 29); // hide setting if ApiVersion is less than 29(Android 10 Q)
+
+        darkModePreference.setSummary(getDisplayValue(
+                (ListPreference)darkModePreference,
+                sharedPreferences.getString(getString(R.string.pref_key_dark_theme), "")
+        ));
+
+        darkModePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object value) {
+                preference.setSummary(SettingsFragment.this.getDisplayValue((ListPreference) preference, value.toString()));
+
+                AppCompatDelegate.setDefaultNightMode(Integer.parseInt(value.toString()));
                 return true;
             }
         });
