@@ -81,9 +81,6 @@
         <!-- MainService -->
         <service android:name="dh.mygrades.main.MainService" android:exported="false" />
 
-        <!-- Background Scraper -->
-        <service android:name="dh.mygrades.main.alarm.ScrapeWorker"  android:exported="false" />
-
         <!-- BootReceiver: default disabled -> only gets enabled if alarm is set -->
         <receiver android:name=".main.alarm.BootReceiver" android:enabled="false">
             <intent-filter>
