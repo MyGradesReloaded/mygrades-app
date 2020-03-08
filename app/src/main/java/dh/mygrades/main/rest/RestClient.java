@@ -24,11 +24,9 @@ import retrofit.converter.GsonConverter;
 public class RestClient {
     private static final String TAG = RestClient.class.getSimpleName();
 
-    private Context context;
     private RestApi restApi;
 
-    public RestClient(Context context) {
-        this.context = context.getApplicationContext();
+    public RestClient() {
 
         RequestInterceptor interceptor = new RequestInterceptor() {
             @Override

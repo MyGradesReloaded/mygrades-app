@@ -26,7 +26,7 @@ public abstract class BaseProcessor {
 
     public BaseProcessor(Context context) {
         this.context = context.getApplicationContext();
-        this.restClient = new RestClient(this.context);
+        this.restClient = new RestClient();
         this.daoSession = ((MyGradesApplication) this.context).getDaoSession();
     }
 
