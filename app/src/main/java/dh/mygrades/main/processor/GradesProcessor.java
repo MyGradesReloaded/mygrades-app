@@ -22,7 +22,6 @@ import dh.mygrades.database.dao.GradeEntryDao;
 import dh.mygrades.database.dao.Overview;
 import dh.mygrades.database.dao.Rule;
 import dh.mygrades.database.dao.RuleDao;
-import dh.mygrades.main.alarm.ScrapeAlarmManager;
 import dh.mygrades.main.core.Parser;
 import dh.mygrades.main.core.Scraper;
 import dh.mygrades.main.core.Transformer;
@@ -336,12 +335,6 @@ public class GradesProcessor extends BaseProcessor {
                 prefs.edit().putBoolean(Constants.PREF_KEY_INITIAL_LOADING_DONE, true).apply();
                 EventBus.getDefault().postSticky(new InitialScrapingDoneEvent());
             }
-
-            // reset one time counter if scraping was successful
-            if (automaticScraping) {
-                ScrapeAlarmManager scrapeAlarmManager = new ScrapeAlarmManager(context);
-                scrapeAlarmManager.resetOneTimeCounters();
-            }
         } catch (ParseException e) {
             postErrorEvent(ErrorEvent.ErrorType.GENERAL, "Parse Error", e, automaticScraping);
         } catch (IOException e) {
@@ -619,11 +612,7 @@ public class GradesProcessor extends BaseProcessor {
      * @param automaticScraping automatic scraping
      */
     private void postErrorEvent(ErrorEvent.ErrorType type, String msg, boolean automaticScraping) {
-        if (!automaticScraping) {
-            super.postErrorEvent(type, msg);
-        } else {
-            setAlarmErrorCounter();
-        }
+        super.postErrorEvent(type, msg);
     }
 
     /**
@@ -634,19 +623,7 @@ public class GradesProcessor extends BaseProcessor {
      * @param automaticScraping automatic scraping
      */
     private void postErrorEvent(ErrorEvent.ErrorType type, String msg, Exception e, boolean automaticScraping) {
-        if (!automaticScraping) {
-            super.postErrorEvent(type, msg, e);
-        } else {
-            setAlarmErrorCounter();
-        }
-    }
-
-    /**
-     * Sets one time fallback alarm in ScrapeAlarmManager.
-     */
-    private void setAlarmErrorCounter() {
-        ScrapeAlarmManager scrapeAlarmManager = new ScrapeAlarmManager(context);
-        scrapeAlarmManager.setOneTimeFallbackAlarm(true);
+        super.postErrorEvent(type, msg, e);
     }
 
     private Map<String,Integer> getSemesterNumberMap(List<GradeEntry> gradeEntries) {

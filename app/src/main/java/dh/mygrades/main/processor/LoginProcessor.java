@@ -10,7 +10,7 @@ import de.greenrobot.event.EventBus;
 import dh.mygrades.R;
 import dh.mygrades.database.dao.University;
 import dh.mygrades.database.dao.UniversityDao;
-import dh.mygrades.main.alarm.ScrapeAlarmManager;
+import dh.mygrades.main.alarm.ScrapeWorkerManager;
 import dh.mygrades.main.events.LoginDataEvent;
 import dh.mygrades.util.Config;
 import dh.mygrades.util.Constants;
@@ -109,8 +109,8 @@ public class LoginProcessor extends BaseProcessor {
         PreferenceManager.setDefaultValues(context, R.xml.settings, true);
 
         // cancel possible active alarms
-        ScrapeAlarmManager scrapeAlarmManager = new ScrapeAlarmManager(context);
-        scrapeAlarmManager.cancelAlarm();
+        ScrapeWorkerManager scrapeWorkerManager = new ScrapeWorkerManager(context);
+        scrapeWorkerManager.setBackgroundScrapingFromPrefs();
     }
 
     /**

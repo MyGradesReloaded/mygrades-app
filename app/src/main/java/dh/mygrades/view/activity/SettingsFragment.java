@@ -15,22 +15,23 @@ import net.xpece.android.support.preference.ListPreference;
 
 import dh.mygrades.BuildConfig;
 import dh.mygrades.R;
-import dh.mygrades.main.alarm.ScrapeAlarmManager;
+import dh.mygrades.main.alarm.ScrapeWorkerManager;
 import dh.mygrades.util.Config;
 import dh.mygrades.util.LogoutHelper;
 
 /**
  * Created by tilman on 12.12.15.
  */
-public class SettingsFragment extends XpPreferenceFragment {
+public class SettingsFragment extends XpPreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String TAG = SettingsFragment.class.getSimpleName();
 
     private SharedPreferences sharedPreferences;
-    private ScrapeAlarmManager scrapeAlarmManager;
+    private ScrapeWorkerManager scrapeWorkerManager;
 
     @Override
     public void onCreatePreferences2(Bundle bundle, String s) {
         addPreferencesFromResource(R.xml.settings);
+        PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -43,31 +44,21 @@ public class SettingsFragment extends XpPreferenceFragment {
         initLegalNotice();
 
         // notification preferences
-        scrapeAlarmManager = new ScrapeAlarmManager(getContext());
-        initAutomaticScrapingPreference();
+        scrapeWorkerManager = new ScrapeWorkerManager(getContext());
         initScrapeFrequencyPreference();
     }
 
-    /**
-     * Initializes the automatic scraping preference and sets an alarm.
-     */
-    private void initAutomaticScrapingPreference() {
-        Preference automaticScrapingPreference = findPreference(getString(R.string.pref_key_automatic_scraping));
-
-        // set change listener to set alarm
-        automaticScrapingPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object value) {
-                boolean boolValue = (boolean) value;
-                if (boolValue) {
-                    scrapeAlarmManager.setAlarmFromPrefs(true, true);
-                } else {
-                    scrapeAlarmManager.cancelAlarm();
-                }
-                return true;
-            }
-        });
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if(
+                (key == getString(R.string.pref_key_automatic_scraping)) ||
+                (key == getString(R.string.pref_key_scrape_frequency)) ||
+                (key == getString(R.string.pref_key_only_wifi))
+        ){
+            scrapeWorkerManager.setBackgroundScrapingFromPrefs();
+        }
     }
+
 
     /**
      * Initializes the scrape frequency preference, updates the summary and sets an alarm.
@@ -87,8 +78,6 @@ public class SettingsFragment extends XpPreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object value) {
                 // Set the summary to reflect the new value.
                 preference.setSummary(getDisplayValue((ListPreference) preference, value.toString()));
-
-                scrapeAlarmManager.setAlarm(Integer.parseInt(value.toString()));
                 return true;
             }
         });

@@ -13,7 +13,7 @@ public class PackageReplacedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         // set alarm
-        ScrapeAlarmManager scrapeAlarmManager = new ScrapeAlarmManager(context);
-        scrapeAlarmManager.setAlarmFromPrefs(true, false);
+        ScrapeWorkerManager scrapeWorkerManager = new ScrapeWorkerManager(context);
+        scrapeWorkerManager.setBackgroundScrapingFromPrefs();
     }
 }

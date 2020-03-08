@@ -4,11 +4,10 @@ import android.app.Application;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
 
-import dh.mygrades.R;
 import dh.mygrades.database.DatabaseHelper;
 import dh.mygrades.database.dao.DaoMaster;
 import dh.mygrades.database.dao.DaoSession;
-import dh.mygrades.main.alarm.ScrapeAlarmManager;
+import dh.mygrades.main.alarm.ScrapeWorkerManager;
 
 /**
  * MyGradesApplication to hold the DaoSession in application scope.
@@ -28,8 +27,8 @@ public class MyGradesApplication extends Application {
         daoSession = daoMaster.newSession();
 
         // check if alarm for automatic scraping is set
-        ScrapeAlarmManager scrapeAlarmManager = new ScrapeAlarmManager(this);
-        scrapeAlarmManager.setAlarmFromPrefs(false, false);
+        ScrapeWorkerManager scrapeWorkerManager = new ScrapeWorkerManager(this);
+        scrapeWorkerManager.setBackgroundScrapingFromPrefs();
     }
 
     public DaoSession getDaoSession() {

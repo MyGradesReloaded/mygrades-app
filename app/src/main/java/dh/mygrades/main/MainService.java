@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import dh.mygrades.database.dao.GradeEntry;
-import dh.mygrades.main.alarm.AlarmReceiver;
 import dh.mygrades.main.processor.GradesProcessor;
 import dh.mygrades.main.processor.LoginProcessor;
 import dh.mygrades.main.processor.StatisticsProcessor;
@@ -42,7 +41,6 @@ public class MainService extends MultiThreadedIntentService {
     public static final int METHOD_SCRAPE_FOR_OVERVIEW = 118;
     public static final int METHOD_GET_LOGIN_DATA_FROM_DATABASE = 119;
     public static final int METHOD_GET_STATISTICS = 121;
-    public static final int METHOD_POST_WISH = 122;
     public static final int METHOD_UPDATE_GRADE_ENTRY = 123;
     public static final int METHOD_UPDATE_GRADE_ENTRY_VISIBILITY = 124;
     public static final int METHOD_DELETE_GRADE_ENTRY = 125;
@@ -57,10 +55,6 @@ public class MainService extends MultiThreadedIntentService {
     public static final String GRADE_HASH = "grade_hash";
     public static final String INITIAL_SCRAPING = "initial_scraping";
     public static final String AUTOMATIC_SCRAPING = "automatic_scraping";
-    public static final String NAME = "name";
-    public static final String EMAIL = "email";
-    public static final String UNIVERSITY_NAME = "university_name";
-    public static final String WISH_MESSAGE = "wish_message";
     public static final String GRADE_ENTRY = "grade_entry";
     public static final String GRADE_ENTRY_HIDDEN = "grade_entry_hidden";
 
@@ -154,11 +148,6 @@ public class MainService extends MultiThreadedIntentService {
                 boolean initialScraping = intent.getBooleanExtra(INITIAL_SCRAPING, false);
                 boolean automaticScraping = intent.getBooleanExtra(AUTOMATIC_SCRAPING, false);
                 gradesProcessor.scrapeForGrades(initialScraping, automaticScraping);
-                // release wake lock if it got called automatically
-                if (automaticScraping) {
-                    Log.d(TAG, "wake lock released.");
-                    AlarmReceiver.completeWakefulIntent(intent);
-                }
                 break;
             case METHOD_GET_GRADES_FROM_DATABASE:
                 gradesProcessor.getGradesFromDatabase(false);

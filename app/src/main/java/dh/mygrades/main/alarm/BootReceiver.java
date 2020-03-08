@@ -19,7 +19,7 @@ public class BootReceiver extends BroadcastReceiver {
         Log.d(TAG, "Boot completed received. -> set alarm");
 
         // set alarm
-        ScrapeAlarmManager scrapeAlarmManager = new ScrapeAlarmManager(context);
-        scrapeAlarmManager.setAlarmFromPrefs(true, false);
+        ScrapeWorkerManager scrapeWorkerManager = new ScrapeWorkerManager(context);
+        scrapeWorkerManager.setBackgroundScrapingFromPrefs();
     }
 }
