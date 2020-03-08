@@ -18,7 +18,7 @@ public class Config {
      * @return API url as String
      */
     public static String getApiUrl() {
-        return getServerUrl();
+        return getServerUrl() + "/api/";
     }
 
     /**
@@ -27,7 +27,7 @@ public class Config {
      * @return server url as String
      */
     public static String getServerUrl() {
-        return "https://mygradesapi.aquiver.de/";
+        return "https://mygradesreloaded.aquiver.de/";
     }
 
     /**
