@@ -1,0 +1,1 @@
+Mit dieser Version sollte das Abrufen der Noten im Hintergrund wieder funktionieren. Schreibt mir falls ihr weitere Fehler findet!
