@@ -13,6 +13,8 @@ import dh.mygrades.main.processor.GradesProcessor;
 
 public class ScrapeWorker extends Worker {
 
+    public ScrapeWorker(){}
+
     public ScrapeWorker(
             @NonNull Context context,
             @NonNull WorkerParameters params) {
