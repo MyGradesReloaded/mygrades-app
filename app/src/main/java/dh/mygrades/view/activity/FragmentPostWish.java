@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.util.Patterns;
 
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -86,8 +87,10 @@ public class FragmentPostWish extends Fragment {
                     tvStatus.setText("");
 
                     // hide keyboard
-                    InputMethodManager im = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    im.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                    InputMethodManager im = (InputMethodManager) getContext()
+                            .getSystemService(Context.INPUT_METHOD_SERVICE);
+                    im.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
 
                     postWish();
                 }
@@ -126,7 +129,7 @@ public class FragmentPostWish extends Fragment {
      * Posts the university wish.
      */
     private void postWish() {
-        
+
         String universityName = etUniversityName.getText().toString();
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
@@ -134,11 +137,10 @@ public class FragmentPostWish extends Fragment {
 
         TaskListener feedbackListener = new TaskListener() {
             @Override
-            public void callback(){
+            public void callback() {
                 showPostWishDone();
             }
         };
-
 
         new SendFeedback(feedbackListener, getActivity(), name, email, message, "wish", universityName).execute();
     }
@@ -153,6 +155,17 @@ public class FragmentPostWish extends Fragment {
 
         if (TextUtils.isEmpty(etUniversityName.getText().toString())) {
             etUniversityName.setError(getResources().getString(R.string.university_name_not_empty));
+            inputCorrect = false;
+        }
+
+        String email = etEmail.getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            etEmail.setError(getResources().getString(R.string.email_address_error_not_empty));
+            inputCorrect = false;
+        }
+
+        if (!TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            etEmail.setError(getResources().getString(R.string.invalid_email_address));
             inputCorrect = false;
         }
 

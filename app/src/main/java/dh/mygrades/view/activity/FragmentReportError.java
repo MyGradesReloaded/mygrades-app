@@ -89,8 +89,10 @@ public class FragmentReportError extends Fragment {
                     tvStatus.setText("");
 
                     // hide keyboard
-                    InputMethodManager im = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    im.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                    InputMethodManager im = (InputMethodManager) getContext()
+                            .getSystemService(Context.INPUT_METHOD_SERVICE);
+                    im.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
 
                     postErrorReport();
                 }
@@ -135,7 +137,7 @@ public class FragmentReportError extends Fragment {
 
         TaskListener feedbackListener = new TaskListener() {
             @Override
-            public void callback(){
+            public void callback() {
                 showErrorReportDone();
             }
         };
@@ -144,11 +146,13 @@ public class FragmentReportError extends Fragment {
         long universityId = prefs.getLong(Constants.PREF_KEY_UNIVERSITY_ID, -1);
         long ruleId = prefs.getLong(Constants.PREF_KEY_RULE_ID, -1);
 
-        new SendFeedback(feedbackListener, getActivity(), name, email, errorMessage, "error", universityId + "/" + ruleId).execute();
+        new SendFeedback(feedbackListener, getActivity(), name, email, errorMessage, "error",
+                universityId + "/" + ruleId).execute();
     }
 
     /**
-     * Checks if the error message is not empty and validates the email address, if present.
+     * Checks if the error message is not empty and validates the email address, if
+     * present.
      *
      * @return true if input is correct
      */
@@ -161,6 +165,11 @@ public class FragmentReportError extends Fragment {
         }
 
         String email = etEmail.getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            etEmail.setError(getResources().getString(R.string.email_address_error_not_empty));
+            inputCorrect = false;
+        }
+
         if (!TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etEmail.setError(getResources().getString(R.string.invalid_email_address));
             inputCorrect = false;
