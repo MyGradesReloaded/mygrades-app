@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.app.job.JobScheduler;
 
 import androidx.work.Constraints;
 import androidx.work.ExistingPeriodicWorkPolicy;
@@ -48,7 +47,6 @@ public class ScrapeWorkerManager {
         int intervalMinutes = Integer.parseInt(prefs.getString(context.getResources().getString(R.string.pref_key_scrape_frequency), "" + STANDARD_INTERVAL));
         boolean isAutoScrapeEnabled = prefs.getBoolean(context.getResources().getString(R.string.pref_key_automatic_scraping), false);
 
-        JobScheduler scheduler = (JobScheduler) context.getSystemService(context.JOB_SCHEDULER_SERVICE);
         if(!isAutoScrapeEnabled){
 
             WorkManager.getInstance(context).cancelUniqueWork(WORKER_ID);
