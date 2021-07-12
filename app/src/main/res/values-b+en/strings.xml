@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyGradesReloaded</string>
+    <string name="username">Benutzername</string>
+    <string name="password">Passwort</string>
+    <string name="tv_enter_userdata">Gib die Benutzerdaten für deine Hochschule ein.</string>
+    <string name="tv_login_privacy_info"><![CDATA[Deine Benutzerdaten werden nur lokal und verschlüsselt auf deinem Smartphone gespeichert.<br/><br/>Weiterhin werden <b>keine</b> personenbezogenen Daten oder deine Noten an uns oder Dritte übermittelt. Genauere <a href="dh.mygrades.view.activity://goto.fragment/privacy">Informationen</a> zum Schutz deiner Daten.]]></string>
+    <string name="error_username_not_empty">Benutzername darf nicht leer sein.</string>
+    <string name="error_password_not_empty">Passwort darf nicht leer sein.</string>
+    <string name="tv_grades_average">Notendurchschnitt:</string>
+    <string name="tv_credit_points">Credit Points:</string>
+    <string name="tv_last_updated_at">Zuletzt aktualisiert:</string>
+    <string name="drawer_open">Menü öffnen</string>
+    <string name="drawer_close">Menü schließen</string>
+    <string name="toolbar_login">Login</string>
+    <string name="toolbar_details">Details</string>
+    <string name="toolbar_privacy_policy">Datenschutz</string>
+    <!-- Converted from ic_expand_less_24px.svg part of the material-design-icons -->
+    <string name="path_expand_less">M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z</string>
+    <string name="tv_grade_detail_exam_id">Prüfungsnummer</string>
+    <string name="tv_grade_detail_semester">Semester</string>
+    <string name="tv_grade_detail_state">Status</string>
+    <string name="tv_grade_detail_credit_points">Credit Points</string>
+    <string name="tv_grade_detail_grade">Note</string>
+    <string name="tv_grade_detail_annotation">Vermerk</string>
+    <string name="tv_grade_detail_attempt">Versuch</string>
+    <string name="tv_grade_detail_exam_date">Prüfungsdatum</string>
+    <string name="tv_overview_participants">Teilnehmer</string>
+    <string name="tv_overview_passed">Bestanden</string>
+    <string name="tv_overview_average">Durchschnitt</string>
+    <string name="tv_overview_label_sections">Notenbereich</string>
+    <string name="tv_overview_label_count">Anzahl</string>
+    <string name="error_no_network">Keine Internetverbindung.\n\nBitte überprüfe deine Internetverbindung und versuche es erneut.</string>
+    <string name="error_timeout">Zeitüberschreitung bei der Anfrage.\n\nEs hat zu lange gedauert, mit dem Server deiner Hochschule zu kommunizieren. Das kann verschiedene Gründe haben:\n1. Deine Internetverbindung ist zu langsam.\n2. Das Notensystem deiner Hochschule ist überlastet.</string>
+    <string name="error_general">Deine Noten konnten nicht abgerufen werden. Das kann verschiedene Gründe haben:\n\n1. Deine Zugangsdaten sind falsch.\n2. Probleme mit der Internetverbindung oder dem Server deiner Hochschule.\n3. Die Linkstruktur innerhalb deines Notensystems könnte sich geändert haben und so ist es zur Zeit nicht möglich, deine Noten abzurufen.</string>
+    <string name="tv_no_grades_found">Es wurden leider keine Noten gefunden.\n\nDeine Notentabelle ist entweder leer, oder deine Zugangsdaten sind inkorrekt. Melde dich im Zweifel einfach erneut an.</string>
+    <string name="get_overview">Notenverteilung abrufen</string>
+    <string name="overview_not_possible"><![CDATA[Notenverteilung für dieses Modul nicht verfügbar. <a href="dh.mygrades.view.activity://goto.fragment/faq/%1$d">Warum?</a>]]></string>
+    <string name="ptr_header_pull_to_refresh">Zum Laden herunterziehen.</string>
+    <string name="ptr_header_release_to_refresh">Loslassen zum Aktualisieren.</string>
+    <string name="ptr_header_refresh_complete">Fertig.</string>
+    <string name="ptr_header_refreshing_grades">Deine Noten werden geladen.</string>
+    <string name="ptr_header_refreshing_overview">Notenverteilung wird geladen.</string>
+    <string name="nav_my_grades">Meine Noten</string>
+    <string name="nav_faq">FAQ</string>
+    <string name="nav_logout">Abmelden</string>
+    <string name="nav_privacy_policy">Schutz deiner Daten</string>
+    <string name="snackbar_refresh_complete">Aktualisieren erfolgreich</string>
+    <string name="error_server_timeout">Zeitüberschreitung bei der Anfrage.\n\nEs hat zu lange gedauert mit unserem Server zu kommunizieren. Bitte versuche es erneut.</string>
+    <string name="error_unknown">Unbekannter Fehler beim Abrufen. Bitte versuche es erneut.</string>
+    <string name="nav_header_logged_in_as">Angemeldet als:</string>
+    <string name="tv_mygrades_version">MyGrades\nv%1$s</string>
+    <string name="toolbar_faq_title">FAQs</string>
+    <string name="tv_grade_detail_tester">Prüfer</string>
+    <string name="ptr_header_refresh_error">Fehler.</string>
+    <string name="login_button">Los geht\'s!</string>
+    <string name="select_your_university">Wähle Deine\nHochschule aus</string>
+    <string name="nav_report_error">Fehler melden</string>
+    <string name="toolbar_report_error">Fehler melden</string>
+    <string name="your_name">Name (optional)</string>
+    <string name="email_address">E-Mail-Adresse</string>
+    <string name="email_address_error_not_empty">E-Mail-Adresse darf nicht leer sein</string>
+    <string name="error_description">Fehlerbeschreibung</string>
+    <string name="btn_report_error">Fehler melden</string>
+    <string name="tv_report_error_introduction">Teile uns mit welche Probleme innerhalb der App oder in Bezug auf deine heruntergeladenen Noten bestehen.</string>
+    <string name="error_message_not_empty">Fehlerbeschreibung darf nicht leer sein</string>
+    <string name="invalid_email_address">Ungültige E-Mail-Adresse</string>
+    <string name="error_post_error_report">Unbekannter Fehler beim Senden des Fehlerberichts.</string>
+    <string name="error_report_done">Vielen Dank! Wir haben deine Nachricht erhalten.</string>
+    <string name="notification_new_grade_title">Neue Note</string>
+    <string name="notification_new_grades_title">neue Noten</string>
+    <string name="notification_updated_grade_title">Note hat sich geändert</string>
+    <string name="notification_updated_grades_title">Noten haben sich geändert</string>
+    <string name="tv_grade_seen_new">NEU</string>
+    <string name="tv_grade_seen_updated">GEÄNDERT</string>
+    <string name="nav_donation">Unterstütze uns!</string>
+    <string name="toolbar_donation">Unterstütze uns!</string>
+    <string name="tv_average_label">Notendurchschnitt</string>
+    <string name="tv_credit_points_label">Credit Points</string>
+    <string name="tv_credit_points_per_semester_label">CPs pro Semester</string>
+    <string name="tv_study_progress_label">Studiumsfortschritt</string>
+    <string name="tv_grade_count_label">Notenanzahl</string>
+    <string name="nav_statistics">Statistiken</string>
+    <string name="toolbar_statistics">Statistiken</string>
+    <string name="chart_credit_points">Credit Points Entwicklung</string>
+    <string name="chart_credit_points_per_semester">Credit Points pro Semester</string>
+    <string name="chart_average_grade_per_semester">Notendurchschnitt pro Semester</string>
+    <string name="chart_grade_distribution">Deine Notenverteilung</string>
+    <string name="snackbar_error_iab">Ups. Bitte nochmal!</string>
+    <string name="tv_post_wish_introduction">Teile uns mit welche Hochschule du gerne hinzugefügt haben möchtest.</string>
+    <string name="tv_post_collected_data">Bei Angabe deiner E-Mail-Adresse können wir uns bei dir melden, falls wir weitere Fragen haben.\n\nMit dem Absenden der Nachricht teilst du uns ebenfalls folgende Informationen mit: Geräteinformationen (Typ, Hersteller, Speicherplatzbelegung, Android-Version, etc.) und ggf. die Universität an der du angemeldet bist.</string>
+    <string name="tv_post_wish_privacy_info"><![CDATA[Genauere <a href="dh.mygrades.view.activity://goto.fragment/privacy">Informationen</a> zum Schutz deiner Daten.]]></string>
+    <string name="university_name">Name der Hochschule</string>
+    <string name="et_message">Nachricht (optional)</string>
+    <string name="btn_post_wish">Wunsch absenden</string>
+    <string name="university_name_not_empty">Hochschule darf nicht leer sein</string>
+    <string name="toolbar_post_wish">Wunsch senden</string>
+    <string name="tv_footer_uni_not_present">Hochschule nicht dabei?</string>
+    <string name="tv_footer_contact_us">Gib uns Bescheid!</string>
+    <string name="info_notifications_message">Wenn du Benachrichtigungen über neue Noten erhalten möchtest, musst du in den Einstellungen das automatische Abrufen aktivieren.</string>
+    <string name="info_notifications_title">Hinweis</string>
+    <string name="info_donation_title">Unterstütze uns!</string>
+    <string name="info_donation_message"><![CDATA[Wir freuen uns, dass du die App regelmäßig nutzt. Nimm dir kurz Zeit und denke über eine <a href="https://www.buymeacoffee.com/DanielHabenicht">Unterstützung</a> nach!]]></string>
+    <string name="info_rating_title">Bewerte die App</string>
+    <string name="info_rating_message"><![CDATA[Wir würden uns über dein Feedback im <a href="market://details?id=dh.mygrades">PlayStore</a> freuen.]]></string>
+    <string name="general_error_stub_report_error"><![CDATA[<a href="dh.mygrades.view.activity://goto.fragment/reporterror">Sag uns Bescheid</a>, falls dieses Problem länger besteht!]]></string>
+    <string name="tv_select_rule_hint">Für deine Hochschule gibt es mehrere Möglichkeiten. Wenn du dir nicht sicher bist, welche zutrifft, probiere einfach alle aus.</string>
+    <string name="btn_logout">Erneut anmelden</string>
+    <string name="tv_grade_detail_weight">Gewichtung</string>
+    <string name="tv_grade_detail_weight_value">%1$dx</string>
+    <string name="tv_modified_hint">von dir geänderte Werte</string>
+    <string name="et_credit_points_invalid">Credit Points müssen &gt;= 0 sein</string>
+    <string name="et_grade_invalid">Note muss zwischen 0.0 und 5.0 liegen</string>
+    <string name="dialog_restore_grade_entry_title">Zurücksetzen</string>
+    <string name="dialog_restore_grade_entry">Möchtest du wirklich alle Bearbeitungen zurücksetzen?</string>
+    <string name="dialog_restore_grade_entry_visibility">Möchtest du wirklich alle Sichtbarkeiten zurücksetzen?</string>
+    <string name="grades_footer_no_guarantee">Alle Angaben ohne Gewähr.</string>
+    <string name="info_edit_mode_title">Editiermodus</string>
+    <string name="info_edit_mode_message"><![CDATA[Über das Icon oben rechts kannst du hier und auf der Detailseite in den neuen Editiermodus wechseln. Dort kannst du neue Module hinzufügen, Module ausblenden, in andere Semester verschieben, Gewichtungen anpassen oder auch alle anderen Werte ändern.]]></string>
+    <string name="dialog_delete_grade_entry_title">Eintrag löschen</string>
+    <string name="dialog_delete_grade_entry">Möchtest du diesen Eintrag wirklich löschen?</string>
+    <string name="dialog_discard_grade_entry_title">Eintrag verwerfen</string>
+    <string name="dialog_discard_grade_entry">Dieses Modul wurde noch nicht gespeichert. Möchtest du es verwerfen?</string>
+    <string name="tv_custom_grade_entry">Selbsterstelltes Modul.</string>
+    <string-array name="grade_attempt_spinner">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string name="state_an">AN</string>
+    <string name="state_be">BE</string>
+    <string name="state_nb">NB</string>
+    <string name="state_en">EN</string>
+</resources>
